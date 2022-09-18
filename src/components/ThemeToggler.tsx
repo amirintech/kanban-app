@@ -6,7 +6,6 @@ import iconDark from "../assets/icons/icon-dark-theme.svg";
 
 export default function ThemeToggler() {
   const theme = useTheme();
-  console.log(theme);
   const [isToggled, setIsToggled] = useState(theme?.currentTheme === "dark");
 
   return (
