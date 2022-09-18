@@ -1,21 +1,16 @@
 import { useState } from "react";
 import Toggle from "./components/shared/Toggle";
+import ThemeToggler from "./components/ThemeToggler";
+import useTheme from "./hooks/useTheme";
 
 function App() {
+  const theme = useTheme();
   const [state, setState] = useState(true);
 
-  // const [selectedItem, setSelected] = useState("");
-
   return (
-    <div className="dark p-2">
+    <div className={`${theme?.currentTheme}`}>
       <div className="rounded bg-gray-200 p-3 dark:bg-gray-700">
-        <Toggle
-          isToggled={state}
-          onToggle={(state) => {
-            setState(state);
-            console.log(state);
-          }}
-        />
+        <ThemeToggler />
       </div>
     </div>
   );
