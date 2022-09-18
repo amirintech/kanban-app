@@ -1,19 +1,20 @@
 import { useState } from "react";
-import Dropdown from "./components/shared/Dropdown";
+import Toggle from "./components/shared/Toggle";
 
 function App() {
-  const [state, setState] = useState(["Todo", "Doing", "Done"]);
+  const [state, setState] = useState(true);
 
-  const [selectedItem, setSelected] = useState("");
+  // const [selectedItem, setSelected] = useState("");
 
   return (
     <div className="dark p-2">
       <div className="rounded bg-gray-200 p-3 dark:bg-gray-700">
-        <Dropdown
-          label="Select an item"
-          items={state}
-          selectedItem={selectedItem}
-          onSelect={(selectedItem) => setSelected(selectedItem)}
+        <Toggle
+          isToggled={state}
+          onToggle={(state) => {
+            setState(state);
+            console.log(state);
+          }}
         />
       </div>
     </div>
